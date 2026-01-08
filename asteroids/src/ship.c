@@ -48,10 +48,8 @@ void UpdateShip(Ship* ship) {
 
   if (IsKeyDown(KEY_UP)) {
     float rads = ship->rotation * (M_PI / 180);
-    float delta_x = 100 * cosf(rads);
-    float delta_y = 100 * sinf(rads);
-
-    printf("Delta X : %f, Delta Y : %f\n", delta_x, delta_y);
+    float delta_x = 100 * sinf(rads);
+    float delta_y = 100 * -cosf(rads);
 
     ship->vel.y += delta_y * dt;
     ship->vel.x += delta_x * dt;
