@@ -1,4 +1,4 @@
-CC := gcc
+CC := clang
 
 BUILD_DIR := ./build
 APP := asteroids
@@ -9,6 +9,7 @@ INC_DIR := $(APP_DIR)/include/
 LIB_DIR := $(APP_DIR)/libs/
 
 SRC_FILES := $(wildcard $(SRC_DIR)*.c)
+CFLAGS := -Wall -Wextra -pedantic
 
 INCLUDE_FLAG := -I$(INC_DIR)
 LD_FLAG := -L$(LIB_DIR) -lraylib
@@ -16,4 +17,4 @@ FRAMEWORKS := -framework CoreFoundation -framework CoreVideo -framework IOKit -f
 
 $(BUILD_DIR)/$(APP):
 	@mkdir -p $(@D)
-	$(CC) $(SRC_FILES) $(INCLUDE_FLAG) $(LD_FLAG) -o $@ $(FRAMEWORKS)
+	$(CC) $(INCLUDE_FLAG) $(LD_FLAG) $(FRAMEWORKS) $(CFLAGS) -o $@ $(SRC_FILES)

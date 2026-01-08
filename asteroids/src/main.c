@@ -11,7 +11,7 @@ Color BlackBackground = {
     .a = 255,
 };
 
-int main() {
+int main(void) {
   Ship* ship = NewShip(WINDOW_WIDTH, WINDOW_HEIGHT);
 
   InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "asteroids");
