@@ -1,5 +1,5 @@
 #include "../include/raylib.h"
-#include "../include/ship.h"
+#include "../include/game.h"
 
 #define WINDOW_WIDTH 800
 #define WINDOW_HEIGHT 800
@@ -12,21 +12,21 @@ Color BlackBackground = {
 };
 
 int main(void) {
-  Ship* ship = NewShip(WINDOW_WIDTH, WINDOW_HEIGHT);
-
+  Game* game = NewGame(WINDOW_WIDTH, WINDOW_HEIGHT);
+  SetTraceLogLevel(LOG_ERROR);
   InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "asteroids");
   SetTargetFPS(80);
 
   while (!WindowShouldClose()) {
-    UpdateShip(ship);
+    UpdateGame(game);
 
     BeginDrawing();
     ClearBackground(BlackBackground);
-    DrawShip(ship);
+    DrawGame(game);
 
     EndDrawing();
   }
-  DestroyShip(ship);
+  DestroyGame(game);
   CloseWindow();
   return 0;
 }

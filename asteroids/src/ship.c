@@ -7,8 +7,8 @@ Ship* NewShip(int window_width, int window_height) {
   ship->vel.y = 0;
 
   ship->rotation = 0;
-  ship->height = 40;
-  ship->width = 30;
+  ship->height = 20;
+  ship->width = 20;
 
   ship->pos.y = window_height / 2 - ship->width / 2;
   ship->pos.x = window_width / 2 - ship->height / 2;
@@ -56,6 +56,7 @@ void UpdateShip(Ship* ship) {
     ship->vel.y += delta_y * dt;
     ship->vel.x += delta_x * dt;
   }
+
   ship->pos.y += ship->vel.y;
   ship->pos.x += ship->vel.x;
 }
